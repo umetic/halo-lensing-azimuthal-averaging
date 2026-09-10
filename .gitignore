@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Build/install artifacts
+build/
+dist/
+
+# Generated numerical and plotting products
+outputs/*
+!outputs/.gitkeep
+
+# Editor/OS files
+*~
+.DS_Store
