@@ -1,0 +1,14 @@
+# Publication stochastic-realization configuration for Umetsu (2026).
+# This file records the public reference settings; the implementation defines
+# the same defaults in src/azlens/population.py and src/azlens/miscentering.py.
+masses_msun_h: [3.0e14, 1.0e15, 2.0e15]
+lens_redshifts: [0.2, 0.5]
+n_halo: 10000
+population_base_seed: 20260815
+population_seed_step: 1009
+offset_base_seed: 20260816
+sigma_log10_c: 0.16
+sigma_d: [0.0, 0.02, 0.05, 0.08]
+shape_model: Bonamigo2015_cluster
+concentration_model: colossus_diemer19_median_200c
+backend: colossus_1.4.0_planck18
