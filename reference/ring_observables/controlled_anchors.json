@@ -1,0 +1,20 @@
+{
+  "version": "ring-observables-v0.1.0",
+  "description": "Deterministic anchors for adopted-center ring fields and nonlinear observables.",
+  "appendix_d_spherical_zs1": {
+    "M200c_Msun_h": 1000000000000000.0,
+    "z_l": 0.3,
+    "z_s": 1.0,
+    "c200c_internal": 3.843,
+    "R_over_r200c": 0.3,
+    "d_over_r200c": 0.1,
+    "n_phi": 8192,
+    "delta_g_plus_fractional_percent": 0.6377685010562573,
+    "notes": "Finite-source residual formed by scaling far-background fields before evaluating reduced shear."
+  },
+  "source_weight_reference": {
+    "z_l": 0.3,
+    "z_s": 1.0,
+    "w": 0.6977015696720461
+  }
+}
