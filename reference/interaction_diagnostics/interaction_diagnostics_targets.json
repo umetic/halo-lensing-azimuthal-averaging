@@ -1,0 +1,36 @@
+{
+  "key_radii": [
+    0.2091279105182546,
+    0.2924408238028535,
+    0.5113850166642591,
+    1.0
+  ],
+  "nonzero_sigma_d": [0.02, 0.05, 0.08],
+  "source_label": "z1",
+  "source_z": 1.0,
+  "section_6_1_restricted": {
+    "domain": "u_lt_0p3",
+    "u_max": 0.3,
+    "n_fits": 72,
+    "r2_min": 0.9943526126179945,
+    "r2_median": 0.9988671021584998
+  },
+  "section_6_2_conditioning": [
+    {
+      "grid_index": 0,
+      "sigma_d": 0.08,
+      "R_over_r200c": 0.2091279105182546,
+      "n_used": 9594,
+      "r2_fractional": 0.9008233931123506,
+      "r2_difference": 0.9478656803096869
+    },
+    {
+      "grid_index": 0,
+      "sigma_d": 0.08,
+      "R_over_r200c": 0.5113850166642591,
+      "n_used": 10000,
+      "r2_fractional": 0.9985614686706494,
+      "r2_difference": 0.9986551109653207
+    }
+  ]
+}
