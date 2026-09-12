@@ -1,0 +1,29 @@
+{
+  "description": "Compact targets for the production-validation workflow harness, not bulk publication products.",
+  "required_stages": ["preflight", "mode-library", "realization", "fields", "analysis", "compare"],
+  "publication_size": {
+    "n_grids": 6,
+    "n_halos_per_grid": 10000,
+    "n_sigma_d": 4,
+    "n_radii": 36,
+    "n_phi": 256,
+    "source_redshifts": [1.0, 2.0]
+  },
+  "expected_analysis_products": [
+    "radial_summary_all_grids.csv",
+    "common_domain.json",
+    "table2_selection.csv",
+    "table2_selection.json",
+    "centered_shape_response.csv",
+    "hybrid_interaction_diagnostics.csv",
+    "conditioning_diagnostics.csv",
+    "alignment_reweighted_summary.csv",
+    "table3_selection.csv"
+  ],
+  "smoke": {
+    "n_grids": 1,
+    "n_halos": 12,
+    "mode_profile": "smoke",
+    "state_source": "reference"
+  }
+}

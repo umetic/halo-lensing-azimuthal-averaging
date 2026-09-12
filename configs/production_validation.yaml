@@ -1,0 +1,31 @@
+# Workflow-level configuration for full production validation.
+# Scientific constants remain in the validated azlens modules/configs.
+run_id: null
+output_root: outputs/production_validation
+
+validation:
+  require_clean_git: true
+  compare_targets: true
+
+mode_library:
+  profile: population
+  use_cache: true
+  rebuild: false
+
+population:
+  n_halos: 10000
+  grids: [0, 1, 2, 3, 4, 5]
+  state_source: colossus
+
+fields:
+  n_phi: 256
+  chunk_size: 64
+  source_redshifts: [1.0, 2.0]
+  sigma_d: [0.0, 0.02, 0.05, 0.08]
+  radial_grid: publication
+
+analysis:
+  run_table2: true
+  run_shape_response: true
+  run_interactions: true
+  run_alignment: true
