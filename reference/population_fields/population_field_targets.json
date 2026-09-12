@@ -1,0 +1,18 @@
+{
+  "publication_radial_grid": {
+    "n_radial": 36,
+    "first": 0.02,
+    "last": 1.0,
+    "key_indices": [21, 24, 29, 35],
+    "key_values": [0.2091279105182546, 0.2924408238028535, 0.5113850166642591, 1.0]
+  },
+  "smoke_evaluation": {
+    "n_halo": 8,
+    "source_redshifts": [1.0, 2.0],
+    "sigma_d": [0.0, 0.05],
+    "n_phi": 32,
+    "radial_grid": [0.2091279105182546, 0.2924408238028535, 0.5113850166642591, 1.0],
+    "expected_summary_rows": 80,
+    "expected_key_count": 4
+  }
+}
