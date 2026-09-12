@@ -1,0 +1,30 @@
+{
+  "qoff_values": [-0.30, -0.15, 0.0, 0.15, 0.30],
+  "families": ["linear", "von_mises"],
+  "domains": ["all_outer_safe", "u_lt_0p3"],
+  "nonzero_sigma_d": [0.02, 0.05, 0.08],
+  "key_radii": [0.2091279105182546, 0.2924408238028535, 0.5113850166642591, 1.0],
+  "current_paper_unfiltered_row_count": 1440,
+  "table3": {
+    "family": "linear",
+    "domain": "all_outer_safe",
+    "sigma_d": 0.05,
+    "R_over_r200c": 0.2924408238028535,
+    "represented_threshold": 0.95,
+    "Qoff_columns": [-0.30, 0.0, 0.30],
+    "rounded_percent_values": [
+      {"grid_index": 0, "mass_msun_h": 300000000000000.0, "z_l": 0.2, "values": [0.448, 0.466, 0.486]},
+      {"grid_index": 1, "mass_msun_h": 1000000000000000.0, "z_l": 0.2, "values": [0.821, 0.857, 0.895]},
+      {"grid_index": 2, "mass_msun_h": 2000000000000000.0, "z_l": 0.2, "values": [1.256, 1.301, 1.361]},
+      {"grid_index": 3, "mass_msun_h": 300000000000000.0, "z_l": 0.5, "values": [1.247, 1.306, 1.384]}
+    ]
+  },
+  "section_6_4_reported_diagnostics": {
+    "Qoff_0_to_plus_0p30_change_percent_points": [0.020, 0.078],
+    "sigma_0p02_to_0p08_change_at_Q0_percent_points": [0.380, 1.069],
+    "max_family_difference_percent_points": 0.0056,
+    "restricted_linear_Rw2_min": 0.9886,
+    "restricted_linear_Rw2_median": 0.9983,
+    "minimum_effective_sample_size_fraction": 0.84
+  }
+}
