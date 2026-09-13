@@ -50,7 +50,7 @@ def main() -> int:
         'population', 'mode_library', 'selection', 'population_fields',
         'statistics', 'publication_summary', 'shape_response',
         'interaction_diagnostics', 'weighted_statistics', 'alignment',
-        'manifest', 'production_validation',
+        'manifest', 'target_comparison', 'production_validation',
     )
     try:
         dependencies = {name: _package_version(name) for name in ('numpy', 'scipy', 'pytest', 'colossus', 'pyyaml')}
@@ -66,7 +66,7 @@ def main() -> int:
         return 2
 
     metadata = {
-        'increment': 'full-production-validation-v0.1.0',
+        'increment': 'target-aware-production-comparison-v0.1.0',
         'started_utc': datetime.now(timezone.utc).isoformat(),
         'python': sys.version,
         'executable': sys.executable,
@@ -95,7 +95,7 @@ def main() -> int:
         'tests/test_population_fields.py', 'tests/test_statistics.py',
         'tests/test_publication_summary.py', 'tests/test_shape_response.py',
         'tests/test_interaction_diagnostics.py', 'tests/test_weighted_statistics.py',
-        'tests/test_alignment.py', 'tests/test_manifest.py', 'tests/test_production_validation.py',
+        'tests/test_alignment.py', 'tests/test_manifest.py', 'tests/test_target_comparison.py', 'tests/test_production_validation.py',
     ]
     result = subprocess.run(command, cwd=root, env=env, text=True,
                             stdout=subprocess.PIPE, stderr=subprocess.STDOUT)

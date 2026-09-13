@@ -1,14 +1,14 @@
 {
-  "description": "Compact targets for the production-validation workflow harness, not bulk publication products.",
-  "required_stages": ["preflight", "mode-library", "realization", "fields", "analysis", "compare"],
-  "publication_size": {
-    "n_grids": 6,
-    "n_halos_per_grid": 10000,
-    "n_sigma_d": 4,
-    "n_radii": 36,
-    "n_phi": 256,
-    "source_redshifts": [1.0, 2.0]
+  "alignment_expected": {
+    "restricted_linear_r2_count": 360
   },
+  "comparison_statuses": [
+    "PASS",
+    "FAIL",
+    "INCOMPLETE",
+    "SKIPPED"
+  ],
+  "description": "Compact target manifest for target-aware production-validation comparisons.",
   "expected_analysis_products": [
     "radial_summary_all_grids.csv",
     "common_domain.json",
@@ -18,12 +18,63 @@
     "hybrid_interaction_diagnostics.csv",
     "conditioning_diagnostics.csv",
     "alignment_reweighted_summary.csv",
-    "table3_selection.csv"
+    "table3_selection.csv",
+    "centered_shape_response_metrics.json",
+    "interaction_diagnostics_metrics.json",
+    "alignment_diagnostics.json",
+    "analysis_manifest.json"
+  ],
+  "publication_size": {
+    "n_grids": 6,
+    "n_halos_per_grid": 10000,
+    "n_phi": 256,
+    "n_radii": 36,
+    "n_sigma_d": 4,
+    "source_redshifts": [
+      1.0,
+      2.0
+    ]
+  },
+  "required_field_files": [
+    "product_arrays.npz",
+    "product_metrics.json",
+    "radial_summary_rows.json"
+  ],
+  "required_stages": [
+    "preflight",
+    "mode-library",
+    "realization",
+    "fields",
+    "analysis",
+    "compare"
   ],
   "smoke": {
+    "mode_profile": "smoke",
     "n_grids": 1,
     "n_halos": 12,
-    "mode_profile": "smoke",
     "state_source": "reference"
+  },
+  "table2_expected": {
+    "n_finite": 9518,
+    "n_outer_safe": 9518,
+    "n_total": 10000,
+    "sigma_d": 0.05
+  },
+  "target_files": {
+    "alignment_reweighting": "reference/alignment_reweighting/alignment_targets.json",
+    "interaction_diagnostics": "reference/interaction_diagnostics/interaction_diagnostics_targets.json",
+    "publication_summary": "reference/publication_summary/publication_summary_targets.json",
+    "shape_response": "reference/shape_response/centered_shape_targets.json"
+  },
+  "tolerances": {
+    "fraction_abs": 1e-12,
+    "percent_abs_display": 0.006,
+    "percent_abs_strict": 1e-09,
+    "r2_abs_strict": 1e-10,
+    "radius_abs": 1e-14,
+    "reported_percent_point_abs": 0.001,
+    "reported_r2_abs": 0.0005,
+    "shape_abs": 1e-08,
+    "table3_display_abs": 0.0005
   }
 }

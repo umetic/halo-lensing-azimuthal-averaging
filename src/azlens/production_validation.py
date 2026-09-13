@@ -40,6 +40,11 @@ from .manifest import (
     utc_now_iso,
     write_json,
 )
+from .target_comparison import (
+    compare_production_validation_run,
+    format_validation_summary,
+    write_production_validation_report,
+)
 from .miscentering import OffsetRealization, draw_offset_realization
 from .mode_library import ModeLibrary
 from .population import (
@@ -600,24 +605,38 @@ def run_analysis_stage(context: ProductionRunContext) -> dict[str, object]:
 
 
 def run_compare_stage(context: ProductionRunContext) -> dict[str, object]:
-    """Create a comparison skeleton and fingerprint generated analysis products."""
+    """Compare generated analysis products with committed compact targets.
+
+    When ``validation.compare_targets`` is false, the stage only fingerprints
+    available analysis files.  This keeps smoke runs and development checks
+    lightweight.  Production runs use the target-aware comparison oracle.
+    """
     started = time.perf_counter()
     out = context.run_dir / "comparison"
     out.mkdir(parents=True, exist_ok=True)
-    analysis_dir = context.run_dir / "analysis"
-    files = sorted(path for path in analysis_dir.glob("*") if path.is_file()) if analysis_dir.exists() else []
-    report = {
-        "status": "fingerprinted",
-        "note": "Full numerical target comparisons are meaningful only after a publication-size run is complete.",
-        "analysis_files": file_manifest(files, base=context.run_dir),
-    }
-    write_json(out / "validation_summary.json", report)
-    (out / "validation_summary.txt").write_text(
-        "Production-validation comparison fingerprinted generated analysis products.\n"
-        "Run publication-size stages before interpreting this as full scientific reproduction.\n",
-        encoding="utf-8",
+    validation_cfg = context.config.get("validation", {})
+    compare_targets = bool(validation_cfg.get("compare_targets", True)) if isinstance(validation_cfg, Mapping) else True
+    if compare_targets:
+        report = compare_production_validation_run(context.run_dir, context.repository_root)
+        write_production_validation_report(report, out)
+        comparison_status = str(report.get("overall_status", "UNKNOWN"))
+    else:
+        analysis_dir = context.run_dir / "analysis"
+        files = sorted(path for path in analysis_dir.glob("*") if path.is_file()) if analysis_dir.exists() else []
+        report = {
+            "overall_status": "SKIPPED",
+            "status": "fingerprinted",
+            "note": "Target comparison disabled by workflow configuration.",
+            "analysis_files": file_manifest(files, base=context.run_dir),
+        }
+        write_json(out / "validation_summary.json", report)
+        (out / "validation_summary.txt").write_text(format_validation_summary(report), encoding="utf-8")
+        comparison_status = "SKIPPED"
+    return _write_stage(
+        context, "compare", "complete", duration_seconds=time.perf_counter()-started,
+        comparison_status=comparison_status,
+        outputs=["comparison/validation_summary.json", "comparison/validation_summary.txt"],
     )
-    return _write_stage(context, "compare", "complete", duration_seconds=time.perf_counter()-started, outputs=["comparison/validation_summary.json", "comparison/validation_summary.txt"])
 
 
 def run_stage(context: ProductionRunContext, stage: str, *, grid_indices: Sequence[int] | None = None) -> dict[str, object]:

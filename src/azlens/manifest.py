@@ -26,7 +26,8 @@ DEFAULT_AZLENS_MODULES = (
     "cosmology", "nfw", "projection", "solver_settings", "multipoles", "ring_fields",
     "observables", "controlled_benchmarks", "miscentering", "population", "mode_library",
     "selection", "population_fields", "statistics", "publication_summary", "shape_response",
-    "interaction_diagnostics", "weighted_statistics", "alignment", "manifest",
+    "interaction_diagnostics", "weighted_statistics", "alignment", "target_comparison",
+    "manifest",
 )
 
 
