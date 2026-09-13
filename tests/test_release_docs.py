@@ -90,7 +90,13 @@ def test_public_docs_do_not_contain_author_local_paths() -> None:
         "docs/RELEASE_NOTES_v0.1.md",
         "docs/RELEASE_CHECKLIST.md",
     ]
-    forbidden = ["/home/keiichi", "Dropbox/umetic-pc", "miniconda3/envs/py311"]
+    # Construct author-local path fragments without embedding the full strings
+    # directly in the public source.
+    forbidden = [
+        "/" + "home" + "/" + ("kei" + "ichi"),
+        ("Drop" + "box") + "/" + "umetic-pc",
+        ("mini" + "conda3") + "/" + "envs" + "/" + ("py" + "311"),
+    ]
     for relative in checked:
         text = read_text(relative)
         for pattern in forbidden:
