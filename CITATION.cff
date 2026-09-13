@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this reproduction package, please cite the associated paper."
+title: "Halo-Lensing Azimuthal Averaging"
+version: "0.1.0"
+date-released: "2026-09-13"
+authors:
+  - family-names: "Umetsu"
+    given-names: "Keiichi"
+preferred-citation:
+  type: article
+  title: "Why Azimuthal Averaging Works in Halo Lensing: Symmetry and Power Counting for Nonlinear Shear and Magnification"
+  authors:
+    - family-names: "Umetsu"
+      given-names: "Keiichi"
+  year: 2026
+  identifiers:
+    - type: url
+      value: "https://arxiv.org/abs/2609.08825"

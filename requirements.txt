@@ -1,0 +1,9 @@
+# Python 3.11 is the supported interpreter for this reproduction package.
+# The Conda environment in environment.yml is the primary supported installation path.
+numpy==1.26.4
+scipy==1.17.1
+pandas==3.0.5
+matplotlib==3.11.0
+PyYAML==6.0.3
+pytest==9.0.3
+colossus==1.4.0
