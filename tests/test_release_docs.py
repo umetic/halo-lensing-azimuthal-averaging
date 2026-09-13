@@ -11,13 +11,14 @@ def read_text(relative: str) -> str:
     return (ROOT / relative).read_text(encoding="utf-8")
 
 
+
 def test_readme_states_scope_and_validation_tag() -> None:
     text = read_text("README.md")
-    assert "paper-specific reference implementation" in text
-    assert "not a general-purpose weak-lensing analysis package" in text
+    normalized = text.replace("*", "").lower()
+    assert "paper-specific reference implementation" in normalized
+    assert "not a general-purpose weak-lensing analysis package" in normalized
     assert "validation-pass-20260913" in text
     assert "Production validation: PASS" in text
-
 
 def test_environment_yml_is_named_azlens_and_pins_core_packages() -> None:
     data = yaml.safe_load(read_text("environment.yml"))
@@ -96,8 +97,11 @@ def test_public_docs_do_not_contain_author_local_paths() -> None:
             assert pattern not in text, f"{pattern!r} found in {relative}"
 
 
+
 def test_validation_summary_records_provenance_without_large_outputs() -> None:
     text = read_text("docs/VALIDATION_SUMMARY.md")
-    assert "Product-generation commit: `83b011d126592bffe6dd74cb5f9241e5787dfabf`" in text
-    assert "Comparison-oracle commit: `161b8b2600631b08a07aa1b5128e45486afba43a`" in text
-    assert "large generated arrays are stored in Git" not in text.lower()
+    normalized = text.replace("*", "")
+    assert "Product-generation commit: `83b011d126592bffe6dd74cb5f9241e5787dfabf`" in normalized
+    assert "Comparison-oracle commit: `161b8b2600631b08a07aa1b5128e45486afba43a`" in normalized
+    assert "are not committed to git" in normalized.lower()
+
