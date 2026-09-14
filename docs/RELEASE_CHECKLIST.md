@@ -2,7 +2,7 @@
 
 This checklist records the status of the paper-specific reproduction package and the items to revisit for future release updates.
 
-## Completed for v0.1.0
+## Completed for the current release-ready state
 
 - [x] Clean repository initialized.
 - [x] Deterministic cosmology/NFW/projection foundation implemented.
@@ -24,7 +24,7 @@ This checklist records the status of the paper-specific reproduction package and
 - [x] Large generated outputs excluded from Git.
 - [x] GitHub remote configured and tags pushed.
 
-## Before a future versioned release
+## Before making the repository public
 
 - [ ] Confirm that `README.md`, documentation, license, citation metadata, and tags render correctly on GitHub.
 - [ ] Decide whether to create a formal version tag such as `v0.1.0`.
