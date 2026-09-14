@@ -1,6 +1,6 @@
 # Reproduction workflow
 
-This document gives the public commands for reproducing the numerical workflow. It avoids author-local paths. Users may choose any output root with sufficient disk space.
+This document gives portable commands for reproducing the numerical workflow. Users may choose any output root with sufficient disk space.
 
 ## 1. Create the environment
 
@@ -72,13 +72,7 @@ Production validation: PASS
 
 The mode-library and realization stages are lightweight compared with the field stage. Runtime is hardware dependent. In the validation run used for the repository milestone, the field stage required roughly two hours of active single-core computation per production grid.
 
-Prevent system sleep during long runs. On Linux systems with systemd, one option is to wrap a long run with `systemd-inhibit`, for example:
-
-```bash
-systemd-inhibit --what=sleep --why="azlens production validation" bash -lc 'conda activate azlens && for g in 0 1 2 3 4 5; do python scripts/run_full_production_validation.py --run-id "$RUN_ID" --output-root "$OUT" --stage fields --grid "$g"; done'
-```
-
-Adapt this command to the local shell and Conda setup.
+Prevent system sleep during long runs using the operating system's power-management tools. On systems with `systemd-inhibit`, the field-stage loop can be run inside an inhibited shell, provided the Conda environment and `OUT`/`RUN_ID` variables are defined in that shell.
 
 ## 6. Inspect the result
 

@@ -2,17 +2,19 @@
 
 **Status:** production-validation PASS for the paper-specific reproduction package.
 
-**Validation tag:** `validation-pass-20260913`
+**Scientific validation tag:** `validation-pass-20260913`
 
 **Product-generation commit:** `83b011d126592bffe6dd74cb5f9241e5787dfabf`
 
 **Comparison-oracle commit:** `161b8b2600631b08a07aa1b5128e45486afba43a`
 
-The product-generation commit produced the publication-size numerical products. The comparison-oracle commit added target-aware comparison logic and was used to classify the generated products against compact frozen targets. The distinction is recorded because the comparison oracle was added after the heavy field products had already been generated; the oracle did not change the scientific calculation.
+The product-generation commit produced the publication-size numerical products. The comparison-oracle commit added target-aware comparison logic and was used to classify the generated products against compact frozen targets. This distinction is recorded because the comparison oracle was added after the heavy field products had already been generated; the oracle did not change the scientific calculation.
+
+Subsequent commits through the documentation-ready state revise release documentation and tests only. They do not modify numerical modules, validation targets, or generated production products.
 
 ## Validation environment
 
-The local validation environment used for the PASS event reported:
+The validation environment used for the PASS event reported:
 
 ```text
 Python:   3.11.16
@@ -23,7 +25,7 @@ Colossus: 1.4.0
 PyYAML:   6.0.3
 ```
 
-The public environment specification is `environment.yml`. It is intentionally portable and does not contain author-local paths or shell aliases.
+The public environment specification is `environment.yml`. It is portable and does not contain machine-specific paths or shell aliases.
 
 ## Production stages
 
@@ -77,7 +79,7 @@ at the diagnostic radius `R/r200c=0.2924408238028535`. The interaction and align
 
 ## When validation should be rerun
 
-Run the fast validation suite after any documentation or interface change:
+Run the fast validation suite after documentation, packaging, or interface changes:
 
 ```bash
 python scripts/check_full_production_validation.py

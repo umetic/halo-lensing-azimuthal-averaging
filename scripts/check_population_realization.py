@@ -13,8 +13,8 @@ import sys
 
 if sys.version_info < (3, 11):
     raise SystemExit(
-        "This increment requires Python >= 3.11. Activate the project environment "
-        "or invoke its interpreter explicitly; do not use an old python3 alias."
+        "This validation requires Python >= 3.11. Activate the documented environment "
+        "or invoke its interpreter explicitly."
     )
 
 import argparse
@@ -66,7 +66,7 @@ def main() -> int:
         return 2
 
     metadata = {
-        'increment': 'population-realization-v0.1.0',
+        'validation_layer': 'population-realization-v0.1.0',
         'started_utc': datetime.now(timezone.utc).isoformat(),
         'python': sys.version,
         'executable': sys.executable,

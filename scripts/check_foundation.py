@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the first-increment tests with this interpreter and save a local report.
+"""Run the foundation tests with this interpreter and save a local report.
 
 From the repository root, after activating the intended environment:
     python scripts/check_foundation.py
@@ -13,8 +13,8 @@ import sys
 
 if sys.version_info < (3, 11):
     raise SystemExit(
-        "This increment requires Python >= 3.11. Activate the project environment "
-        "or invoke its interpreter explicitly; do not use an old python3 alias."
+        "This validation requires Python >= 3.11. Activate the documented environment "
+        "or invoke its interpreter explicitly."
     )
 
 import argparse
@@ -54,7 +54,7 @@ def main() -> int:
         return 2
 
     metadata = {
-        'increment': 'foundation-v0.1.0',
+        'validation_layer': 'foundation-v0.1.0',
         'started_utc': datetime.now(timezone.utc).isoformat(),
         'python': sys.version,
         'executable': sys.executable,

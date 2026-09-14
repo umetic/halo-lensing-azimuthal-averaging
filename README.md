@@ -4,11 +4,11 @@ Paper-specific reference implementation and reproduction package for the numeric
 
 > Keiichi Umetsu, *Why Azimuthal Averaging Works in Halo Lensing: Symmetry and Power Counting for Nonlinear Shear and Magnification*, arXiv:2609.08825.
 
-The repository is intended to make the controlled halo-lensing benchmarks, seeded triaxial-halo population experiment, finite-source/far-background evaluations, selections, reweightings, and summary statistics reproducible. It is **not** a general-purpose weak-lensing analysis package, survey estimator, halo mass-fitting pipeline, or observational data-processing system.
+This repository reproduces the controlled halo-lensing benchmarks, seeded triaxial-halo population experiment, finite-source and far-background evaluations, selections, reweightings, and summary statistics used in the paper. It is **not** a general-purpose weak-lensing analysis package, survey estimator, halo mass-fitting pipeline, or observational data-processing system.
 
-## Current validation status
+## Validation status
 
-The validated milestone is
+The scientific validation milestone is
 
 ```text
 validation-pass-20260913
@@ -31,7 +31,7 @@ conda env create -f environment.yml
 conda activate azlens
 ```
 
-The reference environment uses Python 3.11 with NumPy, SciPy, pandas, Matplotlib, PyYAML, pytest, and Colossus. Colossus is installed through `pip` in `environment.yml`.
+The reference environment uses Python 3.11 with NumPy, SciPy, pandas, Matplotlib, PyYAML, pytest, and Colossus. Colossus is installed through the `pip` subsection of `environment.yml`.
 
 ## Quick validation
 
@@ -72,8 +72,9 @@ Large generated products are written under `outputs/` or a user-specified output
 - [`docs/VALIDATION_SUMMARY.md`](docs/VALIDATION_SUMMARY.md) — validation status and target-aware PASS report.
 - [`docs/REPRODUCTION_WORKFLOW.md`](docs/REPRODUCTION_WORKFLOW.md) — detailed staged commands.
 - [`docs/OUTPUT_SCHEMA.md`](docs/OUTPUT_SCHEMA.md) — generated-output structure and quantity meanings.
-- [`docs/RELEASE_CHECKLIST.md`](docs/RELEASE_CHECKLIST.md) — remaining public-release tasks.
-- [`docs/RELEASE_NOTES_v0.1.md`](docs/RELEASE_NOTES_v0.1.md) — release-candidate notes.
+- [`docs/IMPLEMENTATION_HISTORY.md`](docs/IMPLEMENTATION_HISTORY.md) — compact implementation and validation history.
+- [`docs/RELEASE_NOTES_v0.1.md`](docs/RELEASE_NOTES_v0.1.md) — v0.1.0 release notes.
+- [`docs/RELEASE_CHECKLIST.md`](docs/RELEASE_CHECKLIST.md) — maintenance checklist for future release updates.
 
 ## Citation
 

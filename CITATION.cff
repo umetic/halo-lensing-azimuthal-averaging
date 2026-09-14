@@ -2,6 +2,7 @@ cff-version: 1.2.0
 message: "If you use this reproduction package, please cite the associated paper."
 title: "Halo-Lensing Azimuthal Averaging"
 version: "0.1.0"
+repository-code: "https://github.com/umetic/halo-lensing-azimuthal-averaging"
 date-released: "2026-09-13"
 authors:
   - family-names: "Umetsu"

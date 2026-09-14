@@ -1,6 +1,8 @@
-# Release checklist
+# Release and maintenance checklist
 
-## Completed
+This checklist records the status of the paper-specific reproduction package and the items to revisit for future release updates.
+
+## Completed for v0.1.0
 
 - [x] Clean repository initialized.
 - [x] Deterministic cosmology/NFW/projection foundation implemented.
@@ -17,18 +19,18 @@
 - [x] Target-aware comparison oracle implemented.
 - [x] Publication-size production validation passed.
 - [x] Validation tag created: `validation-pass-20260913`.
+- [x] Release documentation and environment specification added.
+- [x] Clean-clone fast validation passed.
+- [x] Large generated outputs excluded from Git.
+- [x] GitHub remote configured and tags pushed.
 
-## Pending before public GitHub release
+## Before a future versioned release
 
-- [ ] Review public README for tone, scope, and completeness.
-- [ ] Confirm license choice and third-party attribution statements.
-- [ ] Create public GitHub repository and remote.
-- [ ] Test a fresh clone and `conda env create -f environment.yml` on a clean machine or clean environment.
-- [ ] Run `python scripts/check_full_production_validation.py` from the fresh clone.
-- [ ] Decide whether to provide any compact generated example outputs beyond committed reference targets.
-- [ ] Add or defer final figure-generation scripts.
+- [ ] Confirm that `README.md`, documentation, license, citation metadata, and tags render correctly on GitHub.
+- [ ] Decide whether to create a formal version tag such as `v0.1.0`.
 - [ ] Decide whether to archive a release on Zenodo and obtain a DOI.
-- [ ] Update the manuscript/code-availability statement for arXiv v2 or journal submission.
+- [ ] Decide whether to add final figure-rendering scripts or keep the repository focused on numerical reproduction.
+- [ ] Update the manuscript/code-availability statement after the repository URL and release status are finalized.
 
 ## Triggers for repeating the full production run
 
