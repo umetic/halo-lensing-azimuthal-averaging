@@ -11,14 +11,21 @@ def read_text(relative: str) -> str:
     return (ROOT / relative).read_text(encoding="utf-8")
 
 
-def test_readme_states_scope_and_validation_tag() -> None:
+def test_readme_states_scope_and_validation_status() -> None:
     text = read_text("README.md")
     normalized = text.replace("*", "").lower()
     assert "paper-specific reference implementation" in normalized
     assert "not a general-purpose weak-lensing analysis package" in normalized
-    assert "validation-pass-20260913" in text
     assert "Production validation: PASS" in text
-    assert "docs/IMPLEMENTATION_HISTORY.md" in text
+    assert "docs/REPRODUCTION_WORKFLOW.md" in text
+    assert "docs/OUTPUT_SCHEMA.md" in text
+    for removed in [
+        "docs/VALIDATION_SUMMARY.md",
+        "docs/RELEASE_CHECKLIST.md",
+        "docs/RELEASE_NOTES_v0.1.md",
+        "docs/IMPLEMENTATION_HISTORY.md",
+    ]:
+        assert removed not in text
     assert ("release" + "-candidate") not in normalized
 
 
@@ -72,16 +79,13 @@ def test_license_is_mit() -> None:
     assert "THE SOFTWARE IS PROVIDED \"AS IS\"" in text
 
 
-def test_required_release_documents_exist() -> None:
-    for relative in [
-        "docs/VALIDATION_SUMMARY.md",
-        "docs/REPRODUCTION_WORKFLOW.md",
-        "docs/OUTPUT_SCHEMA.md",
-        "docs/IMPLEMENTATION_HISTORY.md",
-        "docs/RELEASE_NOTES_v0.1.md",
-        "docs/RELEASE_CHECKLIST.md",
-    ]:
-        assert (ROOT / relative).is_file()
+def test_public_docs_are_minimal() -> None:
+    expected = {
+        "OUTPUT_SCHEMA.md",
+        "REPRODUCTION_WORKFLOW.md",
+    }
+    actual = {path.name for path in (ROOT / "docs").glob("*.md")}
+    assert actual == expected
 
 
 def test_development_notes_removed_from_public_docs() -> None:
@@ -108,12 +112,3 @@ def test_public_docs_do_not_contain_machine_specific_paths() -> None:
         text = read_text(relative)
         for pattern in forbidden:
             assert pattern not in text, f"{pattern!r} found in {relative}"
-
-
-def test_validation_summary_records_provenance_without_large_outputs() -> None:
-    text = read_text("docs/VALIDATION_SUMMARY.md")
-    normalized = text.replace("*", "")
-    assert "Product-generation commit: `83b011d126592bffe6dd74cb5f9241e5787dfabf`" in normalized
-    assert "Comparison-oracle commit: `161b8b2600631b08a07aa1b5128e45486afba43a`" in normalized
-    assert "are not committed to git" in normalized.lower()
-    assert "documentation-only changes" in normalized.lower()

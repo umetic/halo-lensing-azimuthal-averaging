@@ -8,19 +8,13 @@ This repository reproduces the controlled halo-lensing benchmarks, seeded triaxi
 
 ## Validation status
 
-The scientific validation milestone is
-
-```text
-validation-pass-20260913
-```
-
-At this milestone, a publication-size run regenerated the six-grid, `N=10000` population calculation and the target-aware comparison reported
+A publication-size run regenerated the six-grid, `N=10000` population calculation and the target-aware comparison reported
 
 ```text
 Production validation: PASS
 ```
 
-The comparison passed the run-completeness, common-domain, Table 2, centered-shape response, Section 6.1/6.2 interaction-diagnostic, Section 6.4 alignment-diagnostic, and Table 3 checks. See [`docs/VALIDATION_SUMMARY.md`](docs/VALIDATION_SUMMARY.md) for the validation record.
+The comparison passed the run-completeness, common-domain, Table 2, centered-shape response, Section 6.1/6.2 interaction-diagnostic, Section 6.4 alignment-diagnostic, and Table 3 checks.
 
 ## Installation
 
@@ -69,12 +63,8 @@ Large generated products are written under `outputs/` or a user-specified output
 
 ## Documentation
 
-- [`docs/VALIDATION_SUMMARY.md`](docs/VALIDATION_SUMMARY.md) — validation status and target-aware PASS report.
-- [`docs/REPRODUCTION_WORKFLOW.md`](docs/REPRODUCTION_WORKFLOW.md) — detailed staged commands.
-- [`docs/OUTPUT_SCHEMA.md`](docs/OUTPUT_SCHEMA.md) — generated-output structure and quantity meanings.
-- [`docs/IMPLEMENTATION_HISTORY.md`](docs/IMPLEMENTATION_HISTORY.md) — compact implementation and validation history.
-- [`docs/RELEASE_NOTES_v0.1.md`](docs/RELEASE_NOTES_v0.1.md) — v0.1.0 release notes.
-- [`docs/RELEASE_CHECKLIST.md`](docs/RELEASE_CHECKLIST.md) — maintenance checklist for future release updates.
+- [`docs/REPRODUCTION_WORKFLOW.md`](docs/REPRODUCTION_WORKFLOW.md) — detailed staged commands for reproducing the numerical calculations.
+- [`docs/OUTPUT_SCHEMA.md`](docs/OUTPUT_SCHEMA.md) — generated-output structure and quantity definitions.
 
 ## Citation
 
